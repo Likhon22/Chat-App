@@ -10,7 +10,7 @@ import notFound from "./app/middleware/notFound";
 import config from "./app/config";
 
 const app: Application = express();
-const __dirname = path.resolve();
+const dirname = path.resolve();
 
 // middlewares
 app.use(express.json({ limit: "1mb" }));
@@ -27,7 +27,7 @@ app.use(cookieParser());
 
 app.use("/api/v1", routes);
 if (config.node_env === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/build")));
+  app.use(express.static(path.join(dirname, "../frontend/build")));
   app.get("*", (req: Request, res: Response) => {
     res.sendFile(path.join(__dirname, "../frontend/build", "index.html"));
   });
