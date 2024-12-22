@@ -29,9 +29,7 @@ app.use("/api/v1", routes);
 if (config.node_env === "production") {
   app.use(express.static(path.join(dirname, "../../frontend/dist")));
   app.get("*", (req: Request, res: Response) => {
-    res.sendFile(
-      path.join(__dirname, "../../frontend/dist", "dist", "index.html"),
-    );
+    res.sendFile(path.join(__dirname, "../../frontend/dist", "index.html"));
   });
 }
 
