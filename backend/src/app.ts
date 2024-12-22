@@ -28,12 +28,12 @@ console.log(path.join(__dirname, "../../frontend/dist"));
 
 app.use("/api/v1", routes);
 if (config.node_env === "production") {
-  app.use(express.static(path.join(dirname, "../../frontend/dist")));
+  const frontendDistPath = path.join(__dirname, "../../frontend/dist");
+  app.use(express.static(frontendDistPath));
   app.get("*", (req: Request, res: Response) => {
-    res.sendFile(path.join(dirname, "../../frontend", "dist", "index.html"));
+    res.sendFile(path.join(frontendDistPath, "index.html"));
   });
 }
-
 const test = (req: Request, res: Response) => {
   res.send("Hello World!");
 };
