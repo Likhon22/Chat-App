@@ -22,6 +22,7 @@ app.use(
 );
 
 app.use(cookieParser());
+console.log(path.join(__dirname, "../../frontend/dist"));
 
 // routes
 
