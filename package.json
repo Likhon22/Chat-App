@@ -1,16 +1,31 @@
 {
-  "name": "chatapp",
+  "name": "chatty",
   "version": "1.0.0",
-  "description": "",
+  "description": "A full-stack real-time chat application with MERN stack and Socket.IO",
   "main": "index.js",
   "scripts": {
     "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend && npm run build --prefix backend",
-    "start": "npm run start:prod --prefix backend"
+    "start": "npm run start:prod --prefix backend",
+    "dev:backend": "npm run start:dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "lint": "npm run lint --prefix backend && npm run lint --prefix frontend",
+    "format": "npm run format --prefix backend && npm run format:fix --prefix frontend"
   },
-  "keywords": [],
+  "keywords": [
+    "chat",
+    "real-time",
+    "socket.io",
+    "mern",
+    "react",
+    "express",
+    "mongodb",
+    "nodejs"
+  ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "chatapp": "file:"
+    "chatty": "file:",
+    "concurrently": "^8.2.2"
   }
 }
